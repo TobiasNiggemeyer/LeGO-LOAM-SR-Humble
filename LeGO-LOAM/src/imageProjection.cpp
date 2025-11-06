@@ -56,7 +56,7 @@ ImageProjection::ImageProjection(const std::string &name, Channel<ProjectionOut>
   // Declare parameters
   this->declare_parameter(PARAM_VERTICAL_SCANS, 16);
   this->declare_parameter(PARAM_HORIZONTAL_SCANS, 1800);
-  this->declare_parameter(PARAM_ANGLE_BOTTOM)-15.0;
+  this->declare_parameter(PARAM_ANGLE_BOTTOM, -15.0);
   this->declare_parameter(PARAM_ANGLE_TOP, 15.0);
   this->declare_parameter(PARAM_GROUND_INDEX, 7);
   this->declare_parameter(PARAM_SENSOR_ANGLE, 0.0);
