@@ -36,6 +36,7 @@
 
 #include "mapOptimization.h"
 #include <future>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 using namespace gtsam;
 
@@ -500,7 +501,7 @@ void MapOptimization::publishTF() {
   tf2::Quaternion q;
   geometry_msgs::msg::Quaternion geoQuat;
   q.setRPY(transformAftMapped[2], -transformAftMapped[0], -transformAftMapped[1]);
-  geoQuat = tf2::toMsg(q);
+  tf2::convert(q, geoQuat);
 
   odomAftMapped.header.stamp = timeLaserOdometry;
   odomAftMapped.pose.pose.orientation.x = -geoQuat.y;

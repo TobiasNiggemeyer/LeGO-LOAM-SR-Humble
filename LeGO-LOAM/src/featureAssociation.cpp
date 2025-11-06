@@ -35,6 +35,7 @@
 //      (IROS). October 2018.
 
 #include "featureAssociation.h"
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 const std::string PARAM_VERTICAL_SCANS = "laser.num_vertical_scans";
 const std::string PARAM_HORIZONTAL_SCANS = "laser.num_horizontal_scans";
@@ -1198,7 +1199,7 @@ void FeatureAssociation::publishOdometry() {
   tf2::Quaternion q;
   geometry_msgs::msg::Quaternion geoQuat;
   q.setRPY(transformSum[2], -transformSum[0], -transformSum[1]);
-  geoQuat = tf2::toMsg(q);
+  tf2::convert(q, geoQuat);
 
   laserOdometry.header.stamp = cloudHeader.stamp;
   laserOdometry.pose.pose.orientation.x = -geoQuat.y;
