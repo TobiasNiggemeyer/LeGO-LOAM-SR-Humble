@@ -66,13 +66,13 @@ FeatureAssociation::FeatureAssociation(const std::string &name, Channel<Projecti
   _cycle_count = 0;
 
   // Declare parameters
-  this->declare_parameter(PARAM_VERTICAL_SCANS);
-  this->declare_parameter(PARAM_HORIZONTAL_SCANS);
-  this->declare_parameter(PARAM_SCAN_PERIOD);
-  this->declare_parameter(PARAM_FREQ_DIVIDER);
-  this->declare_parameter(PARAM_EDGE_THRESHOLD);
-  this->declare_parameter(PARAM_SURF_THRESHOLD);
-  this->declare_parameter(PARAM_DISTANCE);
+  this->declare_parameter(PARAM_VERTICAL_SCANS, 16);
+  this->declare_parameter(PARAM_HORIZONTAL_SCANS, 1800);
+  this->declare_parameter(PARAM_SCAN_PERIOD, 0.1);
+  this->declare_parameter(PARAM_FREQ_DIVIDER, 1);
+  this->declare_parameter(PARAM_EDGE_THRESHOLD, 0.1);
+  this->declare_parameter(PARAM_SURF_THRESHOLD, 0.1);
+  this->declare_parameter(PARAM_DISTANCE, 0.1);
 
   float nearest_dist;
 
